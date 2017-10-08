@@ -1,0 +1,64 @@
+swagger: '2.0'
+info:
+  description: "Documentazione delle API di BlueHealth."
+  version: "0.1"
+  title: GitHubIssueAnalytics
+  contact:
+    url: "http://fervento.systems"
+
+host: "127.0.0.1:19800"
+basePath: "/api"
+schemes:
+- "http"
+paths:
+  /analyze/{gitHubUser}/{gitHubRepo}:
+    post:
+      produces:
+      - "application/json"
+      consumes: 
+      - "application/json"
+      parameters:
+        - name: gitHubUser
+          type: string
+          in: path
+          required: true
+        - name: gitHubRepo
+          type: string
+          in: path
+          required: true
+        - name: request
+          required: true
+          description: The list of params for the plugins
+          in: body
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/AnalysisRequest"
+      responses:
+        200:
+          description: "OK - Operazione completata con successo"
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/AnaylsisResult"
+        400:
+          description: "Bad Request - Richiesta non fornita con parametri validi"
+        500:
+          description: "Internal Error - Errore durante l'esecuzione dell'operazione"
+
+definitions:
+  AnalysisRequest:
+    description: 'a (key, value) map.'
+    properties:
+      name:
+        type: string
+    additionalProperties:
+      type: string
+  AnaylsisResult:
+    description: 'a (key, value) map.'
+    properties:
+      name:
+        type: string
+    additionalProperties:
+      type: string
+
