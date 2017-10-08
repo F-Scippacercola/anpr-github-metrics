@@ -7,12 +7,12 @@ A microserver and a client-side application that computes and shows metrics of I
 Anpr-github-metrics is a **JS client-side application** that shows metrics on Issue Trackers, using a **processing microservice** in the backed.
 - **GUI Extensibility** The JS application is based on *Vue* and is easily extensible for adding new plots and reports to the users.
 - **Virtualized environment** The application communicates with a backend microservice (*Dockerized on-the-go*), to guarantee a stable and easy-to-set environment.
-- **Standard communication** The communication uses a standard **REST interface** based on **Swagger** ([See Swagger YAML Specification](https://github.com/F-Scippacercola/anpr-github-metrics/swagger-api.yaml)), to allow the system maintanability.
+- **Standard communication** The communication uses a standard **REST interface** based on **Swagger** ([See Swagger YAML Specification](https://github.com/F-Scippacercola/anpr-github-metrics/blob/master/swagger-api.yml)), to allow the system maintanability.
 - **Powerful frameworks** The microservice runs in a **Java SE Virtual Machine** (it is not required a Java EE!) and exploites the services of **Spring** and **Spring Boot**.
 - **Maintainability and Extensibility** The microservice adopts a **compile-time plugin architecture**:
     1. Currently implements analysis on *GitHub*, but can be extended to other issue tracker (e.g. BugZilla) in moments!.
     2. New plugins for computing new metrics can be easily added at compile-time and registered to the microservice.
-- **Designed with performance in mind** The microservice uses a **high-concurrent local time-cache** (by using **Google Guava _Cache_ and _Striped Locks_**) to improve the LRU queries. _The caching is completely transparent to the plugins!_ ([See how transparent caching has been implemented](https://github.com/F-Scippacercola/anpr-github-metrics/systems/fervento/gitlabissueanalyzer/issuefetcher/CachedIssueFetcher.java))
+- **Designed with performance in mind** The microservice uses a **high-concurrent local time-cache** (by using **Google Guava _Cache_ and _Striped Locks_**) to improve the LRU queries. _The caching is completely transparent to the plugins!_ ([See how transparent caching has been implemented](https://github.com/F-Scippacercola/anpr-github-metrics/blob/master/backend/src/main/java/systems/fervento/gitlabissueanalyzer/issuefetcher/CachedIssueFetcher.java))
 - **Testability by design** The application exploits strategies and design pattern to improve testability (unit and integration) preferring **Inversion Of Control**, **Builders**, **Fluent APIs**, and :_over all_: **Readable code!**.
 
 ![Screenshot 1](https://raw.githubusercontent.com/F-Scippacercola/anpr-github-metrics/master/screenshot1.png)
