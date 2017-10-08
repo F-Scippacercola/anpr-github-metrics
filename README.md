@@ -15,7 +15,7 @@ Anpr-github-metrics is a **JS client-side application** that shows metrics on Is
 - **Designed with performance in mind** The microservice uses a **high-concurrent local time-cache** (by using **Google Guava _Cache_ and _Striped Locks_**) to improve the LRU queries. _The caching is completely transparent to the plugins!_ ([See how transparent caching has been implemented](https://github.com/F-Scippacercola/anpr-github-metrics/systems/fervento/gitlabissueanalyzer/issuefetcher/CachedIssueFetcher.java))
 - **Testability by design** The application exploits strategies and design pattern to improve testability (unit and integration) preferring **Inversion Of Control**, **Builders**, **Fluent APIs**, and :_over all_: **Readable code!**.
 
-![Screenshot](https://raw.githubusercontent.com/F-Scippacercola/anpr-github-metrics/screenshot.png)
+![Screenshot 1](https://raw.githubusercontent.com/F-Scippacercola/anpr-github-metrics/master/screenshot1.png)
 
 ## Currently Implemented Plugins
 
@@ -81,3 +81,5 @@ By default the service runs on docker on your local machine. Modify the `Makefil
 ## Acknowledgments
 
 * This code was developed in the 28-hour of the [Developers Italia Hackathon](https://developers.italia.it) held on the 7-8th October, 2017.
+
+![Screenshot 2](https://raw.githubusercontent.com/F-Scippacercola/anpr-github-metrics/master/screenshot2.png)
