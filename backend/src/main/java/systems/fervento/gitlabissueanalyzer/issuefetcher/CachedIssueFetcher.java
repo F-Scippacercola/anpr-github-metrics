@@ -102,8 +102,11 @@ public class CachedIssueFetcher implements IssuesFetcher {
             Lock lock = stripedLocks.get(uniqueHash);
             lock.lock();
             try {
-                issues = delegatedIssueFetcher.getIssues(user, repo);
-                issueCache.put(uniqueHash, issues);
+                issues = issueCache.getIfPresent(uniqueHash);
+                if (issues == null) {
+                    issues = delegatedIssueFetcher.getIssues(user, repo);
+                    issueCache.put(uniqueHash, issues);
+                }
             } finally {
                 lock.unlock();
             }
